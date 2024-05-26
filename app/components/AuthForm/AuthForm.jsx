@@ -28,12 +28,11 @@ export const AuthForm = (props) => {
     let timer;
     if (authContext.user) {
       timer = setTimeout(() => {
-        setMessage({ status: null, text: null });
         props.close();
       }, 1000);
     }
-    return () => clearTimeout(timer);
-  }, [authContext.user]);
+    return () => {clearTimeout(timer)};
+  }, [[authContext.user]]);
   return (
     <form onSubmit={handleSubmit} className={Styles["form"]}>
       <h2 className={Styles["form__title"]}>Авторизация</h2>
