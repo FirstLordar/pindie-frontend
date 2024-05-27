@@ -38,12 +38,8 @@ export const getNormalizedGameDataById = async (url, id) => {
 
 
 export const getNormalizedGamesDataByCategory = async (url, category) => {
-  try {
     const data = await getData(`${url}?categories.name=${category}`)
     return isResponseOk(data) ? normalizeData(data) : data
-  } catch (error) {
-    return error
-  }
 }
 
 export const authorize = async (url, data) => {
